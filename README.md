@@ -22,4 +22,4 @@ Somethings that is already implemented in this project is:
 
 This project is under GPL license. Check out the [LICENSE](LICENSE.md) to more information. 
 
-[⬆ Go back to the header](#eightDirections-Armory)<br>
+[⬆ Go back to the header](#templates-for-learning-in-armory---8-directional-controller)<br>
