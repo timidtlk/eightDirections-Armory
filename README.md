@@ -1,8 +1,8 @@
 # Templates for Learning in Armory - 8 directional controller
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/timidtlk/eightDirections-Armory?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/iuricode/eightDirections-Armory?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/iuricode/eightDirections-Armory?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/timidtlk/eightDirections-Armory?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/timidtlk/eightDirections-Armory?style=for-the-badge)
 
 <img src="https://avatars.githubusercontent.com/u/20436620?s=280&v=4.png" alt="exemplo imagem">
 
