@@ -1,0 +1,128 @@
+package arm.node;
+
+@:access(armory.logicnode.LogicNode)@:keep class LN_camera_controller extends armory.logicnode.LogicTree {
+
+	var functionNodes:Map<String, armory.logicnode.FunctionNode>;
+
+	var functionOutputNodes:Map<String, armory.logicnode.FunctionOutputNode>;
+
+	public function new() {
+		super();
+		name = "LN_camera_controller";
+		this.functionNodes = new Map();
+		this.functionOutputNodes = new Map();
+		notifyOnAdd(add);
+	}
+
+	override public function add() {
+		var _RotateObject = new armory.logicnode.RotateObjectNode(this);
+		_RotateObject.property0 = "Global";
+		_RotateObject.preallocInputs(3);
+		_RotateObject.preallocOutputs(1);
+		var _OnUpdate = new armory.logicnode.OnUpdateNode(this);
+		_OnUpdate.property0 = "Update";
+		_OnUpdate.preallocInputs(0);
+		_OnUpdate.preallocOutputs(1);
+		armory.logicnode.LogicNode.addLink(_OnUpdate, _RotateObject, 0, 0);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.ObjectNode(this, "camera_controller"), _RotateObject, 0, 1);
+		var _Rotation = new armory.logicnode.RotationNode(this);
+		_Rotation.property0 = "EulerAngles";
+		_Rotation.property1 = "Deg";
+		_Rotation.property2 = "XYZ";
+		_Rotation.preallocInputs(2);
+		_Rotation.preallocOutputs(1);
+		var _Vector = new armory.logicnode.VectorNode(this);
+		_Vector.preallocInputs(3);
+		_Vector.preallocOutputs(1);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.FloatNode(this, 0.0), _Vector, 0, 0);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.FloatNode(this, 0.0), _Vector, 0, 1);
+		var _GetMouseMovement = new armory.logicnode.GetMouseMovementNode(this);
+		_GetMouseMovement.preallocInputs(3);
+		_GetMouseMovement.preallocOutputs(6);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.FloatNode(this, -0.05000000074505806), _GetMouseMovement, 0, 0);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.FloatNode(this, -0.05000000074505806), _GetMouseMovement, 0, 1);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.FloatNode(this, -1.0), _GetMouseMovement, 0, 2);
+		armory.logicnode.LogicNode.addLink(_GetMouseMovement, new armory.logicnode.FloatNode(this, 0.0), 0, 0);
+		armory.logicnode.LogicNode.addLink(_GetMouseMovement, new armory.logicnode.FloatNode(this, 0.0), 1, 0);
+		armory.logicnode.LogicNode.addLink(_GetMouseMovement, new armory.logicnode.IntegerNode(this, 0), 4, 0);
+		armory.logicnode.LogicNode.addLink(_GetMouseMovement, new armory.logicnode.FloatNode(this, 0.0), 5, 0);
+		armory.logicnode.LogicNode.addLink(_GetMouseMovement, _Vector, 2, 2);
+		armory.logicnode.LogicNode.addLink(_Vector, _Rotation, 0, 0);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.FloatNode(this, 0.10000000149011612), _Rotation, 0, 1);
+		armory.logicnode.LogicNode.addLink(_Rotation, _RotateObject, 0, 2);
+		armory.logicnode.LogicNode.addLink(_RotateObject, new armory.logicnode.NullNode(this), 0, 0);
+		var _SetObjectRotation = new armory.logicnode.SetRotationNode(this);
+		_SetObjectRotation.property0 = "Euler Angles";
+		_SetObjectRotation.preallocInputs(3);
+		_SetObjectRotation.preallocOutputs(1);
+		armory.logicnode.LogicNode.addLink(_OnUpdate, _SetObjectRotation, 0, 0);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.ObjectNode(this, "camera_axis"), _SetObjectRotation, 0, 1);
+		var _Rotation_001 = new armory.logicnode.RotationNode(this);
+		_Rotation_001.property0 = "EulerAngles";
+		_Rotation_001.property1 = "Deg";
+		_Rotation_001.property2 = "XYZ";
+		_Rotation_001.preallocInputs(2);
+		_Rotation_001.preallocOutputs(1);
+		var _Vector_001 = new armory.logicnode.VectorNode(this);
+		_Vector_001.preallocInputs(3);
+		_Vector_001.preallocOutputs(1);
+		var _GetObjectProperty = new armory.logicnode.GetPropertyNode(this);
+		_GetObjectProperty.preallocInputs(2);
+		_GetObjectProperty.preallocOutputs(2);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.ObjectNode(this, "camera_controller"), _GetObjectProperty, 0, 0);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.StringNode(this, "cam_rotate"), _GetObjectProperty, 0, 1);
+		armory.logicnode.LogicNode.addLink(_GetObjectProperty, new armory.logicnode.StringNode(this, ""), 1, 0);
+		armory.logicnode.LogicNode.addLink(_GetObjectProperty, _Vector_001, 0, 0);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.FloatNode(this, 0.0), _Vector_001, 0, 1);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.FloatNode(this, 0.0), _Vector_001, 0, 2);
+		armory.logicnode.LogicNode.addLink(_Vector_001, _Rotation_001, 0, 0);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.FloatNode(this, 0.10000000149011612), _Rotation_001, 0, 1);
+		armory.logicnode.LogicNode.addLink(_Rotation_001, _SetObjectRotation, 0, 2);
+		armory.logicnode.LogicNode.addLink(_SetObjectRotation, new armory.logicnode.NullNode(this), 0, 0);
+		var _SetObjectLocation = new armory.logicnode.SetLocationNode(this);
+		_SetObjectLocation.preallocInputs(4);
+		_SetObjectLocation.preallocOutputs(1);
+		var _OnUpdate_001 = new armory.logicnode.OnUpdateNode(this);
+		_OnUpdate_001.property0 = "Update";
+		_OnUpdate_001.preallocInputs(0);
+		_OnUpdate_001.preallocOutputs(1);
+		armory.logicnode.LogicNode.addLink(_OnUpdate_001, _SetObjectLocation, 0, 0);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.ObjectNode(this, "camera_controller"), _SetObjectLocation, 0, 1);
+		var _GetObjectLocation = new armory.logicnode.GetLocationNode(this);
+		_GetObjectLocation.preallocInputs(2);
+		_GetObjectLocation.preallocOutputs(1);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.ObjectNode(this, "player_hitbox"), _GetObjectLocation, 0, 0);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.BooleanNode(this, false), _GetObjectLocation, 0, 1);
+		armory.logicnode.LogicNode.addLink(_GetObjectLocation, _SetObjectLocation, 0, 2);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.BooleanNode(this, false), _SetObjectLocation, 0, 3);
+		armory.logicnode.LogicNode.addLink(_SetObjectLocation, new armory.logicnode.NullNode(this), 0, 0);
+		var _SetObjectProperty = new armory.logicnode.SetPropertyNode(this);
+		_SetObjectProperty.preallocInputs(4);
+		_SetObjectProperty.preallocOutputs(1);
+		armory.logicnode.LogicNode.addLink(_OnUpdate_001, _SetObjectProperty, 0, 0);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.ObjectNode(this, "camera_controller"), _SetObjectProperty, 0, 1);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.StringNode(this, "cam_rotate"), _SetObjectProperty, 0, 2);
+		var _Clamp = new armory.logicnode.ClampNode(this);
+		_Clamp.preallocInputs(3);
+		_Clamp.preallocOutputs(1);
+		var _Math = new armory.logicnode.MathNode(this);
+		_Math.property0 = "Add";
+		_Math.property1 = false;
+		_Math.preallocInputs(2);
+		_Math.preallocOutputs(1);
+		armory.logicnode.LogicNode.addLink(_GetObjectProperty, _Math, 0, 0);
+		armory.logicnode.LogicNode.addLink(_GetMouseMovement, _Math, 3, 1);
+		armory.logicnode.LogicNode.addLink(_Math, _Clamp, 0, 0);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.FloatNode(this, -90.0), _Clamp, 0, 1);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.FloatNode(this, 20.0), _Clamp, 0, 2);
+		armory.logicnode.LogicNode.addLink(_Clamp, _SetObjectProperty, 0, 3);
+		armory.logicnode.LogicNode.addLink(_SetObjectProperty, new armory.logicnode.NullNode(this), 0, 0);
+		var _SetCursorState = new armory.logicnode.SetCursorStateNode(this);
+		_SetCursorState.property0 = "hide locked";
+		_SetCursorState.preallocInputs(2);
+		_SetCursorState.preallocOutputs(1);
+		armory.logicnode.LogicNode.addLink(_OnUpdate, _SetCursorState, 0, 0);
+		armory.logicnode.LogicNode.addLink(new armory.logicnode.BooleanNode(this, false), _SetCursorState, 0, 1);
+		armory.logicnode.LogicNode.addLink(_SetCursorState, new armory.logicnode.NullNode(this), 0, 0);
+	}
+}
