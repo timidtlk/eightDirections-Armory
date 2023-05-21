@@ -1,7 +1,5 @@
 # Templates for Learning in Armory - 8 directional controller
 
-<!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
-
 ![GitHub repo size](https://img.shields.io/github/repo-size/timidtlk/eightDirections-Armory?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/iuricode/eightDirections-Armory?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/iuricode/eightDirections-Armory?style=for-the-badge)
@@ -24,4 +22,4 @@ Somethings that is already implemented in this project is:
 
 This project is under GPL license. Check out the [LICENSE](LICENSE.md) to more information. 
 
-[⬆ Go back to the header](# Templates for Learning in Armory - 8 directional controller)<br>
+[⬆ Go back to the header](#eightDirections-Armory)<br>
