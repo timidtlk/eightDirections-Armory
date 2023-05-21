@@ -24,4 +24,4 @@ Somethings that is already implemented in this project is:
 
 This project is under GPL license. Check out the [LICENSE](LICENSE.md) to more information. 
 
-[⬆ Voltar ao topo](#Templates for Learning in Armory - 8 directional controller)<br>
+[⬆ Go back to the header](# Templates for Learning in Armory - 8 directional controller)<br>
