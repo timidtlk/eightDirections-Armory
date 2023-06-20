@@ -16,7 +16,7 @@ Somethings that is already implemented in this project is:
 - [x] 8 directional rotate to
 - [x] Camera Look
 
-## Made by <a href="github.com/timidtlk">TimidTLK</a>
+## Made by <a href="https://github.com/timidtlk">TimidTLK</a>
 
 ## 📝 License
 
